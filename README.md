@@ -73,6 +73,7 @@ These are some experiments of SSD-MobileNetV2 FOMO model deployment on ESP-EYE
 
 ## Contacts
 **Email:** quan.nm207984@sis.hust.edu.vn
+
 **Phone:** 0961266396
 
 
