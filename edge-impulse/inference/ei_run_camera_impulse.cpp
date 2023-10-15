@@ -20,13 +20,34 @@
  * SOFTWARE.
  */
 
-/* Include ----------------------------------------------------------------- */
+/* Include -------------------------------------------------------------------------- */
 #include "model-parameters/model_metadata.h"
 
 #if defined(EI_CLASSIFIER_SENSOR) && EI_CLASSIFIER_SENSOR == EI_CLASSIFIER_SENSOR_CAMERA
+
+/* ---------------------------------- C++ Library ----------------------------------- */
 #include <iostream>
+#include "nvs_flash.h"
+#include "time.h"
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+/* --------------------------------- ESP32 Library ---------------------------------- */
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "esp_firebase/app.h"
+#include "esp_firebase/rtdb.h"
+#include "esp_sleep.h"
+#include "esp_wifi.h"
+#include "esp_system.h"
+#include "esp_event.h"
+#include "esp_log.h"
+#include "esp_timer.h"
+#include "esp_log.h"
+#include "esp_netif.h"
+
+/* ---------------------------- Firmware - AI Library ------------------------------- */
 #include "edge-impulse-sdk/classifier/ei_run_classifier.h"
 #include "edge-impulse-sdk/dsp/image/image.hpp"
 #include "ei_camera.h"
@@ -35,25 +56,17 @@
 #include "stdint.h"
 #include "ei_device_espressif_esp32.h"
 #include "ei_run_impulse.h"
-#include "esp_wifi.h"
-#include "esp_system.h"
-#include "esp_event.h"
-#include "esp_log.h"
-#include "esp_timer.h"
-#include "nvs_flash.h"
-#include "time.h"
-#include "esp_log.h"
+
+/* ----------------------------- Firebase Realtime DB ------------------------------- */
 #include "lwip/err.h"
 #include "lwip/sys.h"
 #include "lwip/sockets.h"
 #include "freertos/event_groups.h"
-
-#include "esp_netif.h"
 #include "jsoncpp/value.h"
 #include "jsoncpp/json.h"
 
-#include "esp_firebase/app.h"
-#include "esp_firebase/rtdb.h"
+#define GPIO_DEEP_SLEEP_DURATION     10  // sleep 10 seconds and then wake up
+RTC_DATA_ATTR static time_t last;        // remember last boot in RTC Memory
 
 using namespace ESPFirebase;
 /* The examples use WiFi configuration that you can set via project configuration menu
@@ -61,10 +74,11 @@ using namespace ESPFirebase;
    If you'd rather not, just change the below entries to strings with
    the config you want - ie #define EXAMPLE_WIFI_SSID "mywifissid"
 */
+
 #define EXAMPLE_ESP_WIFI_SSID      "Quan Tung"
 #define EXAMPLE_ESP_WIFI_PASS      "123@5689"
 #define EXAMPLE_ESP_MAXIMUM_RETRY  10
-
+#define GPIO_DEEP_SLEEP_DURATION   60  
 
 #if CONFIG_ESP_WIFI_AUTH_OPEN
 #define ESP_WIFI_SCAN_AUTH_MODE_THRESHOLD WIFI_AUTH_OPEN
@@ -90,7 +104,6 @@ using namespace ESPFirebase;
  * - we failed to connect after the maximum amount of retries */
 #define WIFI_CONNECTED_BIT BIT0
 #define WIFI_FAIL_BIT      BIT1
-
 #define WIFI_TAG "wifi station"
 
 typedef enum {
@@ -99,7 +112,6 @@ typedef enum {
     INFERENCE_SAMPLING,
     INFERENCE_DATA_READY
 } inference_state_t;
-
 
 
 /* FreeRTOS event group to signal when we are connected*/
@@ -130,6 +142,7 @@ static void event_handler(void* arg, esp_event_base_t event_base,
     }
 }
 
+/* ---------------------------------- Wifi Connection ----------------------------------- */
 void wifi_init_sta(void)
 {
 	ei_printf("Wifi connecting...\r\n");
@@ -186,7 +199,7 @@ void wifi_init_sta(void)
         ei_printf("connected to ap SSID: %s || password: %s",
                  EXAMPLE_ESP_WIFI_SSID, EXAMPLE_ESP_WIFI_PASS);
     } else if (bits & WIFI_FAIL_BIT) {
-        ei_printf("Failed to connect to SSID: %s || password: %s",
+        ei_printf("Failed to connect to SSID: %s || password: %s/n",
                  EXAMPLE_ESP_WIFI_SSID, EXAMPLE_ESP_WIFI_PASS);
     } else {
         ei_printf("UNEXPECTED EVENT");
@@ -197,6 +210,7 @@ void wifi_init_sta(void)
     ESP_ERROR_CHECK(esp_event_handler_instance_unregister(WIFI_EVENT, ESP_EVENT_ANY_ID, instance_any_id));
     vEventGroupDelete(s_wifi_event_group);
 }
+
 
 void wifiInit(void) {
     // Initialize NVS
@@ -211,10 +225,11 @@ void wifiInit(void) {
     wifi_init_sta();
 }
 
+/* ---------------------------------- TCP Connection ----------------------------------- */
 void send_signal_to_esp32(void) {
     int sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock < 0) {
-        printf("Failed to create socket\n");
+        ei_printf("Failed to create socket\n");
         return;
     }
 
@@ -222,10 +237,10 @@ void send_signal_to_esp32(void) {
     memset(&server_address, 0, sizeof(server_address));
     server_address.sin_family = AF_INET;
     server_address.sin_port = htons(1234);  // Port number used by QT Creator
-    server_address.sin_addr.s_addr = inet_addr("192.168.1.4");  // IP address of QT Creator
+    server_address.sin_addr.s_addr = inet_addr("192.168.1.6");  // IP address of QT Creator
 
     if (connect(sock, (struct sockaddr *)&server_address, sizeof(server_address)) < 0) {
-        printf("Failed to connect to ESP32\n");
+        ei_printf("Failed to connect to ESP32\n");
         close(sock);
         return;
     }
@@ -233,9 +248,11 @@ void send_signal_to_esp32(void) {
     short int signal_value = '0';  // Tín hiệu trống
     ssize_t sent_bytes = send(sock, &signal_value, sizeof(signal_value), 0);
     if (sent_bytes < 0) {
-        printf("Failed to send signal to ESP32\n");
+        ei_printf("Failed to send signal to ESP32\n");
     } else {
-        printf("Sent order to ESP32\n");
+        ei_printf("Sent order to ESP32\n");
+		ei_printf("Adhesive plate are being replaced...\n");
+		ei_printf("Done!\n");
     }
 
     close(sock);
@@ -277,8 +294,11 @@ static int ei_camera_get_data(size_t offset, size_t length, float *out_ptr)
     return 0;
 }
 
+/* ---------------------------------- AI Functions ----------------------------------- */
 void ei_run_impulse(void)
 {
+	struct timeval now;
+	gettimeofday(&now, NULL);
     uint8_t *jpeg_image;
     uint32_t jpeg_image_size = 0;
     
@@ -385,7 +405,8 @@ void ei_run_impulse(void)
 
 		// Gửi dữ liệu lên Firebase Realtime Database
 		db.putData("/YellowFliesQuantity", num_boxes_json.c_str());
-		//send_signal_to_esp32();
+		ei_printf("Data sent to Firebase Realtime Database!\n");
+		send_signal_to_esp32();
 		
 	}
     
@@ -406,10 +427,16 @@ void ei_run_impulse(void)
     if (debug_mode) {
         ei_printf("\r\n----------------------------------\r\n");
         ei_printf("End output\r\n");
+		ei_printf("We will be back in 1 minute\n");
+		printf("deep sleep (%lds since last reset, %lds since last boot)\n",now.tv_sec,now.tv_sec-last);
+		last = now.tv_sec;
+		// sleep duration time configuration here!
+		esp_deep_sleep(1000000LL * GPIO_DEEP_SLEEP_DURATION);
+		
     }
 }
 
-
+/* ------------------------------- CALL AI Function with Requirements -------------------------------- */
 void ei_start_impulse(bool continuous, bool debug, bool use_max_uart_speed)
 {
 	esp_err_t smartconfig_init();
@@ -422,9 +449,11 @@ void ei_start_impulse(bool continuous, bool debug, bool use_max_uart_speed)
     EiDeviceESP32* dev = static_cast<EiDeviceESP32*>(EiDeviceESP32::get_device());
     EiCameraESP32 *camera = static_cast<EiCameraESP32*>(EiCameraESP32::get_camera());
 
-    // check if minimum suitable sensor resolution is the same as
-    // desired snapshot resolution
-    // if not we need to resize later
+    /* check if minimum suitable sensor resolution is the same as
+	   desired snapshot resolution
+	   if not we need to resize later
+	*/
+	
     fb_resolution = camera->search_resolution(snapshot_resolution.width, snapshot_resolution.height);
 
     if (snapshot_resolution.width != fb_resolution.width || snapshot_resolution.height != fb_resolution.height) {
@@ -461,10 +490,10 @@ void ei_start_impulse(bool continuous, bool debug, bool use_max_uart_speed)
         dev->set_max_data_output_baudrate();
         ei_sleep(100);
     }
-// delay inference here!
+
    while(!ei_user_invoke_stop()) {
       ei_run_impulse();
-      ei_sleep(20000);
+      ei_sleep(60000);
    }
 
     ei_stop_impulse();
@@ -478,6 +507,7 @@ void ei_start_impulse(bool continuous, bool debug, bool use_max_uart_speed)
 
 }
 
+/* ---------------------------------- Stop Inferencing ----------------------------------- */
 void ei_stop_impulse(void)
 {
     state = INFERENCE_STOPPED;
