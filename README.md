@@ -19,7 +19,7 @@ clear && idf.py build
 ```
 ```get_idf``` is an alias for export.sh script that sets up ESP IDF environment variables. Read more about it [here](https://docs.espressif.com/projects/esp-idf/en/v4.4/esp32/get-started/index.html#step-4-set-up-the-environment-variables).
 
-### Flash
+#### Flash
 
 Connect the ESP32 board to your computer.
 
