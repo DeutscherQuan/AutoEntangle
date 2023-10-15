@@ -21,10 +21,10 @@ If you are using Edge Impulse, do the following steps:
 - First, open the file **\edge-impulse\inference\ei_run_impulse.h** and configure your Firebase project information: 
 ```
 // create a new api key and add it here  
-#define API_KEY "AIzaSyCwBgvqH-j_TFMXijSNxnI2lC4f_l5zd3s"
+#define API_KEY "AIzaSyCwBgvqH-j_TFMXijSNxnI2lC4f_XXXXXX"
 
 // Copy your firebase real time database link here 
-#define DATABASE_URL "https://smarttrap2022-9f9e7-default-rtdb.firebaseio.com/"  
+#define DATABASE_URL "https://smarttrap2022-XXXXX-default-rtdb.firebaseio.com/"  
 
 #define USER_EMAIL "quannm293@gmail.com"  // This gmail does not exist outside your database. it only exists in the firebase project as a user
 #define USER_PASSWORD "123456788"      // Dont add your gmail credentials. Setup users authentication in your Firebase project first
