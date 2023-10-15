@@ -47,7 +47,7 @@ These are some experiments of SSD-MobileNetV2 FOMO model deployment on ESP-EYE
 #### Stats comparison between two SSD-MobileNetV2 FOMO model Version
 ![RAM usage table]()
 <p align="center">
-  <img width="460" height="300" src="https://github.com/DeutscherQuan/AutoEntangleV01/assets/109386187/5a74cf23-dd75-4eb9-be80-3d9ceca8d643">
+  <img src="https://github.com/DeutscherQuan/AutoEntangleV01/assets/109386187/5a74cf23-dd75-4eb9-be80-3d9ceca8d643">
 </p>
 
 #### FOMO 0.1 model inference on ESP - EYE!
