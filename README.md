@@ -2,8 +2,6 @@
 
 AutoEntangle is equipped with advanced features and minimal resources on the ESP-EYE, achieves an impressive 97% F1 Score in validation dataset, with an efficient mean processing time of 6 seconds per image and peak RAM usage of 2.4Mb per task!
 
-**Note: Do you just want to use this development board with Edge Impulse? No need to build this firmware. See the instructions [here](https://docs.edgeimpulse.com/docs/espressif-esp32) for a prebuilt firmware and instructions. Or, you can use the [data forwarder](https://docs.edgeimpulse.com/docs/cli-data-forwarder) to capture data from any sensor.**
-
 ## Requirements
 
 ### Hardware
