@@ -38,5 +38,5 @@ Use screen, minicom or Serial monitor in Arduino IDE to set up a serial connecti
 These are some experiments of SSD-MobilenetV2 FOMO model deployment on ESP-EYE
 
 ### 
-![alt text](https://www.messenger.com/messenger_media/?attachment_id=358351563203946&message_id=mid.%24cAAAB_VtvbPuRZQDiyWLM7s8C_sbW&thread_id=100073306429454)
+![alt text]([http://url/to/img.png](https://scontent.fhan17-1.fna.fbcdn.net/v/t1.15752-9/393188173_358351569870612_6804848453205592332_n.png?_nc_cat=106&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=eOah0urXLXkAX-mZQKV&_nc_ht=scontent.fhan17-1.fna&_nc_e2o=s&oh=03_AdRzXZx7VrL2Gbb6oI8veseT4kQB6dulsqZskCI10-GkUg&oe=65537C74)https://scontent.fhan17-1.fna.fbcdn.net/v/t1.15752-9/393188173_358351569870612_6804848453205592332_n.png?_nc_cat=106&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=eOah0urXLXkAX-mZQKV&_nc_ht=scontent.fhan17-1.fna&_nc_e2o=s&oh=03_AdRzXZx7VrL2Gbb6oI8veseT4kQB6dulsqZskCI10-GkUg&oe=65537C74)
 
