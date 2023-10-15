@@ -49,7 +49,9 @@ These are some experiments of SSD-MobileNetV2 FOMO model deployment on ESP-EYE
 
 #### FOMO 0.1 model inference on ESP - EYE!
 ![FOMO01_Infer](https://github.com/DeutscherQuan/AutoEntangleV01/assets/109386187/f4e6baaa-ca16-4d27-8470-76fe1165794b)
-
+<p align="center">
+  <img width="460" height="300" src="https://picsum.photos/460/300">
+</p>
 
 
 
