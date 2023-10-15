@@ -20,7 +20,6 @@ If you are using Edge Impulse, do the following steps:
 ### Building the application
 - First, open the file **\edge-impulse\inference\ei_run_impulse.h** and configure your Firebase project information: 
 ```
-
 // create a new api key and add it here  
 #define API_KEY "AIzaSyCwBgvqH-j_TFMXijSNxnI2lC4f_l5zd3s"
 
@@ -29,9 +28,6 @@ If you are using Edge Impulse, do the following steps:
 
 #define USER_EMAIL "quannm293@gmail.com"  // This gmail does not exist outside your database. it only exists in the firebase project as a user
 #define USER_PASSWORD "123456788"      // Dont add your gmail credentials. Setup users authentication in your Firebase project first
-
-#ifndef EI_RUN_IMPULSE_H
-#define EI_RUN_IMPULSE_H
 ```
 
 - Then from the firmware folder execute:
