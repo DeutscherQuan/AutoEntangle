@@ -1,6 +1,6 @@
-# Edge Impulse firmware for Espressif ESP32
+# AutoEntange - An Insects monitorning system using ESP32 and SSD-MobilenetV2 FOMO model
 
-Edge Impulse enables developers to create the next generation of intelligent device solutions with embedded Machine Learning. This repository contains the Edge Impulse firmware for the Espressif ESP32 based development boards, specifically ESP-EYE (ESP32) and FireBeetle Board (ESP32). These devicee supports Edge Impulse device features, including ingestion and inferencing.
+AutoEntangle is equipped with advanced features and minimal resources on the ESP-EYE, achieves an impressive 97% F1 Score in validation dataset, with an efficient mean processing time of 6 seconds per image and peak RAM usage of 2.4Mb per task!
 
 **Note: Do you just want to use this development board with Edge Impulse? No need to build this firmware. See the instructions [here](https://docs.edgeimpulse.com/docs/espressif-esp32) for a prebuilt firmware and instructions. Or, you can use the [data forwarder](https://docs.edgeimpulse.com/docs/cli-data-forwarder) to capture data from any sensor.**
 
