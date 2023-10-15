@@ -66,6 +66,15 @@ These are some experiments of SSD-MobileNetV2 FOMO model deployment on ESP-EYE
   <img src="https://github.com/DeutscherQuan/AutoEntangleV01/assets/109386187/f4e6baaa-ca16-4d27-8470-76fe1165794b">
 </p>
 
+#### Dashboard Interface on Node-Red
+<p align="center">
+  <img src="https://github.com/DeutscherQuan/AutoEntangleV01/assets/109386187/b8988893-7abf-41e6-99f6-32912a402572">
+</p>
+
+## Contacts
+**Email:** quan.nm207984@sis.hust.edu.vn
+**Phone:** 0961266396
+
 
 
 
