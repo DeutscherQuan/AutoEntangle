@@ -15,7 +15,7 @@ AutoEntangle is equipped with advanced features and minimal resources on the ESP
 ### Build your own model?
 If you are using Edge Impulse, do the following steps:
 - Go to ```Deployment```, select and build model as C++ library, a folder will be downloaded automatically to your computer.
-- Open the downloaded folder, copy three folders *edge-impulse-sdk*, *model-parameters* and *tflite-model* and paste to this repository.
+- Open the downloaded folder, copy three folders **edge-impulse-sdk**, **model-parameters** and **tflite-model** and paste to this repository.
 
 ### Building the application
 Then from the firmware folder execute:
