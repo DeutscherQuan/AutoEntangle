@@ -14,7 +14,7 @@ AutoEntangle, boasting advanced functionalities while conserving minimal resourc
   
 ### Build your own model?
 If you are using Edge Impulse, do the following steps:
-- Go to ```Deployment```, select and build model as C++ library, a folder will be downloaded automatically to your computer.
+- Go to ```Deployment```, select and ```build model as C++ library```, a folder will be downloaded automatically to your computer.
 - Open the downloaded folder, copy three folders **edge-impulse-sdk**, **model-parameters** and **tflite-model** and paste to this repository.
 
 ### Building the application
