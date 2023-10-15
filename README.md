@@ -1,4 +1,4 @@
-# AutoEntange - An Insects monitorning system using ESP32 and SSD-MobilenetV2 FOMO model
+# AutoEntange - An Insects monitorning system using ESP32 and SSD-MobileNetV2 FOMO model
 
 AutoEntangle is equipped with advanced features and minimal resources on the ESP-EYE, achieves an impressive 97% F1 Score in validation dataset, with an efficient mean processing time of 6 seconds per image and peak RAM usage of 2.4Mb per task!
 
@@ -35,11 +35,11 @@ Where ```/dev/ttyUSB0``` needs to be changed to actual port where ESP32 is conne
 Use screen, minicom or Serial monitor in Arduino IDE to set up a serial connection over USB. The following UART settings are used: 115200 baud, 8N1.
 
 ## Some experiments
-These are some experiments of SSD-MobilenetV2 FOMO model deployment on ESP-EYE
+These are some experiments of SSD-MobileNetV2 FOMO model deployment on ESP-EYE
 
-### 
-![alt text](![RAM usage table](https://github.com/DeutscherQuan/AutoEntangleV01/assets/109386187/5a74cf23-dd75-4eb9-be80-3d9ceca8d643)
-)
+### Stats comparison between two SSD-MobileNetV2 FOMO model Version
+![RAM usage table](https://github.com/DeutscherQuan/AutoEntangleV01/assets/109386187/5a74cf23-dd75-4eb9-be80-3d9ceca8d643)
+
 
 
 
