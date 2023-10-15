@@ -21,7 +21,7 @@ If you are using Edge Impulse, do the following steps:
 - First, open the file **\edge-impulse\inference\ei_run_impulse.h** and configure your Firebase project information: 
 ```
 // create a new api key and add it here  
-#define API_KEY "AIzaSyCwBgvqH-j_TFMXijSNxnI2lC4f_XXXXXX"
+#define API_KEY "AIzaSyCwBgvqH-j_TFMXijSNxnI2lC4f_ABCDEF"
 
 // Copy your firebase real time database link here 
 #define DATABASE_URL "https://smarttrap2022-XXXXX-default-rtdb.firebaseio.com/"  
