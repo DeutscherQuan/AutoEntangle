@@ -37,6 +37,8 @@ clear && idf.py --no-ccache build
 ```
 ```get_idf``` is an alias for export.sh script that sets up ESP IDF environment variables. Read more about it [here](https://docs.espressif.com/projects/esp-idf/en/v4.4/esp32/get-started/index.html#step-4-set-up-the-environment-variables).
 
+- To connect Firebase and Node-Red together and create interface. Follow [this tutorial](https://randomnerdtutorials.com/real-time-storage-firebase-node-red/).
+
 #### Flash
 
 Connect the ESP32 board to your computer.
