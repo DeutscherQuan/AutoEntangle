@@ -45,12 +45,14 @@ Use screen, minicom or Serial monitor in Arduino IDE to set up a serial connecti
 These are some experiments of SSD-MobileNetV2 FOMO model deployment on ESP-EYE
 
 #### Stats comparison between two SSD-MobileNetV2 FOMO model Version
-![RAM usage table](https://github.com/DeutscherQuan/AutoEntangleV01/assets/109386187/5a74cf23-dd75-4eb9-be80-3d9ceca8d643)
+![RAM usage table]()
+<p align="center">
+  <img width="460" height="300" src="https://github.com/DeutscherQuan/AutoEntangleV01/assets/109386187/5a74cf23-dd75-4eb9-be80-3d9ceca8d643">
+</p>
 
 #### FOMO 0.1 model inference on ESP - EYE!
-![FOMO01_Infer]()
 <p align="center">
-  <img width="460" height="300" src="[https://picsum.photos/460/300](https://github.com/DeutscherQuan/AutoEntangleV01/assets/109386187/f4e6baaa-ca16-4d27-8470-76fe1165794b)https://github.com/DeutscherQuan/AutoEntangleV01/assets/109386187/f4e6baaa-ca16-4d27-8470-76fe1165794b">
+  <img width="460" height="300" src="https://picsum.photos/460/300](https://github.com/DeutscherQuan/AutoEntangleV01/assets/109386187/f4e6baaa-ca16-4d27-8470-76fe1165794b)https://github.com/DeutscherQuan/AutoEntangleV01/assets/109386187/f4e6baaa-ca16-4d27-8470-76fe1165794b">
 </p>
 
 
