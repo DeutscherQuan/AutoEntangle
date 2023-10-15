@@ -20,7 +20,7 @@ If you are using Edge Impulse, do the following steps:
 ### Building the application
 - First, open the file **\edge-impulse\inference\ei_run_impulse.h** and configure your Firebase project information: 
 ```
-<span style='color: red;'>// create a new api key and add it here</span>  
+// create a new api key and add it here  
 #define API_KEY "AIzaSyCwBgvqH-j_TFMXijSNxnI2lC4f_l5zd3s"
 // Copy your firebase real time database link here 
 #define DATABASE_URL "https://smarttrap2022-9f9e7-default-rtdb.firebaseio.com/"  
