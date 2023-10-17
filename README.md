@@ -6,7 +6,7 @@ AutoEntangle, boasting advanced functionalities while conserving minimal resourc
 
 ### Hardware
 
-- Espressif ESP32 based development boards, preferably ESP-EYE (ESP32) and FireBeetle Board (ESP32). Using with other boards is possible, but code modifications is needed. For more on that read **Using with other ESP32 boards**.
+- Espressif ESP32 based development boards, preferably ESP-EYE (ESP32) and FireBeetle Board (ESP32). Using with other boards is possible, but code modifications is needed. For more on that read [Using with other ESP32 boards](https://docs.edgeimpulse.com/docs/development-platforms/officially-supported-mcu-targets/espressif-esp32#using-with-other-esp32-boards).
 
 ### Tools
 - Install ESP IDF v4.4, following the instructions for your OS from [this page](https://docs.espressif.com/projects/esp-idf/en/v4.4/esp32/get-started/index.html#installation-step-by-step).
@@ -37,7 +37,7 @@ clear && idf.py --no-ccache build
 ```
 ```get_idf``` is an alias for export.sh script that sets up ESP IDF environment variables. Read more about it [here](https://docs.espressif.com/projects/esp-idf/en/v4.4/esp32/get-started/index.html#step-4-set-up-the-environment-variables).
 
-- To connect Firebase and Node-Red together and create interface. Follow [this tutorial](https://randomnerdtutorials.com/real-time-storage-firebase-node-red/).
+- To connect Firebase to Node-Red and create User-Dashboard. Follow [this tutorial](https://randomnerdtutorials.com/real-time-storage-firebase-node-red/).
 
 #### Flash
 
