@@ -59,17 +59,17 @@ Use screen, minicom or Serial monitor in Arduino IDE to set up a serial connecti
 These are some experiments of SSD-MobileNetV2 FOMO model deployment on ESP-EYE
 
 #### Stats comparison between two SSD-MobileNetV2 FOMO model Version
+| Models    | Device | Ram (Mb) | Flash (Kb) | Time (ms) |
+|-----------|--------|----------|------------|-----------|
+| FOMO 0.1  | ESP32  | 2.4      | 52.4       | 5694      |
+| FOMO 0.35 | ESP32  | 2.4      | 53.3       | 6427      |
+
+#### Performance comparison between two SSD-MobileNetV2 FOMO model Version
 | Threshold | Accuracy FOMO 0.1 | Accuracy FOMO 0.35 |
 |-----------|-------------------|--------------------|
 | 0.25      | 0.85              | 0.92               |
 | 0.5       | 0.96              | 1.00               |
 | 0.75      | 0.75              | 0.78               |
-
-
-| Models    | Device | Ram (Mb) | Flash (Kb) | Time (ms) |
-|-----------|--------|----------|------------|-----------|
-| FOMO 0.1  | ESP32  | 2.4      | 52.4       | 5694      |
-| FOMO 0.35 | ESP32  | 2.4      | 53.3       | 6427      |
 
 
 #### Dashboard Interface on Node-Red
