@@ -64,9 +64,12 @@ These are some experiments of SSD-MobileNetV2 FOMO model deployment on ESP-EYE
 </p>
 
 #### FOMO 0.1 model inference on ESP - EYE!
-<p align="center">
-  <img src="https://github.com/DeutscherQuan/AutoEntangleV01/assets/109386187/f4e6baaa-ca16-4d27-8470-76fe1165794b">
-</p>
+| Threshold | Accuracy FOMO 0.1 | Accuracy FOMO 0.35 |
+|-----------|-------------------|--------------------|
+| 0.25      | 0.85              | 0.92               |
+| 0.5       | 0.96              | 1.00               |
+| 0.75      | 0.75              | 0.78               |
+
 
 #### Dashboard Interface on Node-Red
 <p align="center">
