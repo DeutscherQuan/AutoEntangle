@@ -1,4 +1,4 @@
-# Resource-Constrained Intelligent Trap: Frugal Surveillance Framework with TinyML Integration - An Insects monitorning system using ESP32 and SSD-MobileNetV2 FOMO model
+# Resource-Constrained Intelligent Trap- An Insects monitorning system using ESP32 and SSD-MobileNetV2 FOMO model
 
 RCIT, boasting advanced functionalities while conserving minimal resources on the ESP-EYE, not only achieves an impressive 92% F1 Score on the validation dataset but also operates efficiently with a mean processing time of just 6 seconds per image and peak RAM usage of 2.4Mb per task. Furthermore, the project encompasses a user-friendly dashboard built on Firebase as its database and utilizes Node-RED as the primary monitoring server.
 
