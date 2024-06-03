@@ -65,6 +65,13 @@ These are some experiments of SSD-MobileNetV2 FOMO model deployment on ESP-EYE
 | 0.5       | 0.96              | 1.00               |
 | 0.75      | 0.75              | 0.78               |
 
+
+| Models    | Device | Ram (Mb) | Flash (Kb) | Time (ms) |
+|-----------|--------|----------|------------|-----------|
+| FOMO 0.1  | ESP32  | 2.4      | 52.4       | 5694      |
+| FOMO 0.35 | ESP32  | 2.4      | 53.3       | 6427      |
+
+
 #### Dashboard Interface on Node-Red
 <p align="center">
   <img src="https://github.com/DeutscherQuan/AutoEntangleV01/assets/109386187/b8988893-7abf-41e6-99f6-32912a402572">
